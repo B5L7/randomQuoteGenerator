@@ -1,2 +1,2 @@
 # randomQuoteGenerator
- randomQuoteGeneratorrandomQuoteGenerator
+ randomQuoteGenerator
