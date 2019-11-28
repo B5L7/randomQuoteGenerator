@@ -12,8 +12,8 @@ include 'quotes.php';
 function getRandomQuote($var) {
 
    if (is_array($var)) {
+
      $key = mt_rand(0, 2);
-     echo $key . '<br/>';
 
      $package['quote'] = $var[$key]['quote'];
 
@@ -37,16 +37,39 @@ function getRandomQuote($var) {
 
 }
 
-function testing($var) {
-  $package = getRandomQuote($var);
-  var_dump($package);
-}
-
-echo '<pre>';
-testing($quotes);
-echo '<pre>';
 
 // Create the printQuote funtion and name it printQuote
+
+function printQuote($var) {
+
+  $package = getRandomQuote($var);
+
+//  We now have a standardised array of quote elements
+//  The exercise requires us to create a string and then concatenate the appropriate quote elements
+
+  $output = '<p class="quote">' . $package['quote'] . '</p>';
+
+  $output .= '<p class="source">' . $package['source'];
+
+//  Before we can close the <p> we need to check whether the quote has citation and/or year elements
+
+  if ($package['citation']) {
+    $output .= '<span class="citation">' . $package['citation'] . '</span>';
+  }
+
+  if ($package['year']) {
+    $output .= '<span class="year">' . $package['year'] . '</span>';
+  }
+
+  $output .= '</p>';
+
+//  The string is now complete. We only need to print it to the HTML doc
+
+  echo $output;
+
+}
+
+printQuote($quotes);
 
 
   ?>

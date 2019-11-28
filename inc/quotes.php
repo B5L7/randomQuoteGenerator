@@ -15,7 +15,7 @@ $quotes[] = [
 
 $quotes[] = [
 'quote' => 'Third words of wisdom',
-'source' => 'Third person',
+'source' => 'Third source',
 'citation' => 'Third person',
 'year' => 1980,
 ];
