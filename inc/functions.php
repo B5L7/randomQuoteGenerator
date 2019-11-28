@@ -15,30 +15,36 @@ function getRandomQuote($var) {
      $key = mt_rand(0, 2);
      echo $key . '<br/>';
 
-     $quote = $var[$key]['quote'];
-     var_dump($quote);
+     $package['quote'] = $var[$key]['quote'];
 
-     $source = $var[$key]['source'];
-     var_dump($source);
-
+     $package['source'] = $var[$key]['source'];
 
         if (isset($var[$key]['citation'])) {
-        $citation = $var[$key]['citation'];
-          var_dump($citation);
-
-      }
+        $package['citation'] = $var[$key]['citation'];
+      } else {
+          $package['citation'] = null;
+        }
 
         if (isset($var[$key]['year'])){
-        $year = $var[$key]['year'];
-          var_dump($year);
-
-      }
+        $package['year'] = $var[$key]['year'];
+      } else {
+          $package['year'] = null;
+        }
 
    }
+
+  return $package;
+
 }
 
-getRandomQuote($quotes);
+function testing($var) {
+  $package = getRandomQuote($var);
+  var_dump($package);
+}
 
+echo '<pre>';
+testing($quotes);
+echo '<pre>';
 
 // Create the printQuote funtion and name it printQuote
 
