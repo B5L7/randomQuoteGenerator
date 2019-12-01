@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body <?php include 'inc/setColor.php'; ?> >
   <div class="container">
     <div id="quote-box">
       <?php include 'inc/functions.php'; ?>
