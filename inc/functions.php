@@ -19,11 +19,11 @@ function getRandomQuote($var) {
 
 //  If it is, we can start by selecting a quote via a random key
 
-     $key = mt_rand(0, 2);
+     $key = mt_rand(0, 7);
 
 //     This is the most important step in this exercise
 //     We are going to create a new associative array from the random $quotes elements
-//     This new array $package will have a consistent number of keys
+//     This new array, $package, will have a consistent number of keys
 //     With null values for non-mandatory keys that are unspecified
 //     This will simplify the job of outputting HTML from printQuote()
 
@@ -33,7 +33,7 @@ function getRandomQuote($var) {
 
 //     The quote and source keys are mandatory in $quotes
 //     We can add them to $package without checking that they are specified
-//     However, citation and year are non-mandatory keys
+//     However, citation, year and tag are non-mandatory keys
 //     If either is unspecified, we will describe their value as null
 
         if (isset($var[$key]['citation'])) {
@@ -46,6 +46,12 @@ function getRandomQuote($var) {
         $package['year'] = $var[$key]['year'];
       } else {
           $package['year'] = null;
+        }
+
+     if (isset($var[$key]['tag'])){
+        $package['tag'] = $var[$key]['tag'];
+      } else {
+          $package['tag'] = null;
         }
 
    }
@@ -71,7 +77,7 @@ function printQuote($var) {
 
   $output .= '<p class="source">' . $package['source'];
 
-//  Before we can close the <p> we need to check whether the quote has citation and/or year elements
+//  Before we can close the <p> we need to check whether the quote has citation/year/tag elements
 
   if ($package['citation']) {
     $output .= '<span class="citation">' . $package['citation'] . '</span>';
@@ -82,6 +88,12 @@ function printQuote($var) {
   }
 
   $output .= '</p>';
+
+  if ($package['tag']) {
+    $output .= '<p class="source">' . $package['tag'] . '</p>';
+  }
+
+
 
 //  The string is now complete. We only need to print it to the HTML doc
 
