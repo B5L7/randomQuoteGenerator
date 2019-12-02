@@ -18,6 +18,9 @@
   <body <?php include 'inc/setColor.php'; ?> onLoad="refreshMe(20000)">
 
 <!--
+
+  Target grade: Exceeds Expectations
+
   It was not clear from the assignment notes whether we should use js or php to randomise background colour, so I have used the latter.
 
   In the same body tag I have called the js function refreshMe(), which will auto-refresh the page after 20 seconds.

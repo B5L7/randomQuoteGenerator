@@ -1,5 +1,7 @@
 <?php
 
+// Target grade: Exceeds Expectations
+
 include 'quotes.php';
 
 // In the interests of simplicity, I have created a separate quotes file.
