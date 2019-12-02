@@ -1,15 +1,8 @@
 <?php
 
-// PHP - Random Quote Generator
-
-// Create the Multidimensional array of quote elements and name it quotes
-// Each inner array element should be an associative array
-
 include 'quotes.php';
 
-// I have created a separate quotes file to keep this one simple
-
-// Create the getRandomQuote function and name it getRandomQuote
+// In the interests of simplicity, I have created a separate quotes file.
 
 function getRandomQuote($var) {
 
@@ -25,7 +18,7 @@ function getRandomQuote($var) {
 //     We are going to create a new associative array from the random $quotes elements
 //     This new array, $package, will have a consistent number of keys
 //     With null values for non-mandatory keys that are unspecified
-//     This will simplify the job of outputting HTML from printQuote()
+//     This will simplify the job of outputting HTML in printQuote()
 
      $package['quote'] = $var[$key]['quote'];
 
@@ -34,7 +27,7 @@ function getRandomQuote($var) {
 //     The quote and source keys are mandatory in $quotes
 //     We can add them to $package without checking that they are specified
 //     However, citation, year and tag are non-mandatory keys
-//     If either is unspecified, we will describe their value as null
+//     If unspecified, we will describe their value as null
 
         if (isset($var[$key]['citation'])) {
         $package['citation'] = $var[$key]['citation'];
@@ -63,15 +56,13 @@ function getRandomQuote($var) {
 
 }
 
-
-// Create the printQuote funtion and name it printQuote
-
 function printQuote($var) {
 
   $package = getRandomQuote($var);
 
-//  We now have a standardised array of quote elements
-//  The exercise requires us to create a string and then concatenate the appropriate quote elements
+//  We now have a standardised array of quote elements within the function scope
+
+//  We are required to create a string and then concatenate the appropriate quote elements
 
   $output = '<p class="quote">' . $package['quote'] . '</p>';
 
